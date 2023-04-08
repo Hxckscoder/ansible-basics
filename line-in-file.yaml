@@ -1,0 +1,10 @@
+- name: Adding lines to file
+  hosts: localhost
+  tasks:
+    - name: Add lines to file
+      lineinfile:
+        path: /tmp/file.txt
+        line: "{{ item }}"
+      with_items:
+        - This is line 1
+        - This is line 2
