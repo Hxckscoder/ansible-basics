@@ -1,0 +1,10 @@
+---
+  - name: class work
+    hosts: localhost
+    tasks:
+      - name: create empty file under /tmp
+        blockinfile:
+          path: /tmp/file.txt
+          block: |
+            This is line 1
+            This is line 2
