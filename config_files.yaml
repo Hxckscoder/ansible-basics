@@ -1,0 +1,25 @@
+---
+- name: Config Files
+  hosts: localhost
+  tasks:
+    - name: Creating config files
+      file:
+        path: /root/ansible/ansible-basics/ansible-basics/test_config1
+        state: touch
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+    - name: Creating config files
+      file:
+        path: /root/ansible/ansible-basics/ansible-basics/test_config2
+        state: touch
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+    - name: Creating config files
+      file:
+        path: /root/ansible/ansible-basics/ansible-basics/test_config3
+        state: touch
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
