@@ -1,6 +1,0 @@
----
-- name: Ping localhost
-  hosts: localhost
-  tasks:
-    - name: Run Ping command
-      ping: localhost
