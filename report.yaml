@@ -1,0 +1,48 @@
+- name: Gather host1 system information
+  hosts: 10.118.0.3
+  gather_facts: true
+  tasks:
+    - name: Check hostname
+      command: hostnamectl
+      register: myoutput1
+    - name: Print Message
+      debug:
+        var: myoutput
+    
+    - name: Check disk usage
+      command: "df -h"
+      register: myoutput2
+    - name: Print Message
+      debug:
+        var: myoutput2
+
+    - name: Check memory usage
+      command: "free -m"
+      register: myoutput3
+    - name: Print Message
+      debug:
+        var: myoutput3
+    
+    - name: Print Message
+      debug:
+        msg:
+        - "{{ myoutput1 }}"
+        - "{{ myoutput2 }}"
+        - "{{ myoutput3 }}"
+
+    # - name: Create report
+    #   block:
+    #     - name: Create directory for report
+    #       file:
+    #         path: /tmp/host1_report
+    #         state: directory
+
+    #     - name: Write disk usage to report
+    #       copy:
+    #         content: "{{ disk_info.stdout }}"
+    #         dest: /tmp/host1_report/disk_usage.txt
+
+    #     - name: Write memory usage to report
+    #       copy:
+    #         content: "{{ memory_info.stdout }}"
+    #         dest: /tmp/host1_report/memory_usage.txt
